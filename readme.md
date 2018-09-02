@@ -4,7 +4,7 @@ http://sakailab.com/ntcir14stc3/
 
 The Chinese dataset contains 4,090 (3,700 for training + 390 for testing)  customer-helpdesk dialgoues which are crawled from [weibo.com](weibo.com). All of these dialogues are annotated by 19 annotators.
 
-The English dataset contains 2062 dialogues (1,672 for training + 390 for test)  are manually translated from a subset of the Chinese dataset. The English dataset shares the same annotations with the Chinese dataset.
+The English dataset contains 2062 dialogues (1,672 for training + 390 for testing)  are manually translated from a subset of the Chinese dataset. The English dataset shares the same annotations with the Chinese dataset.
 
 #### Training Data
 
