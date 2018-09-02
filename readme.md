@@ -1,4 +1,6 @@
-# Dataset for STC3 DQ and ND subtasks
+# Dataset for NTCIR14-STC3 DQ and ND subtasks
+
+http://sakailab.com/ntcir14stc3/
 
 The Chinese dataset contains 4,090 (3,700 for training + 390 for testing)  customer-helpdesk dialgoues which are crawled from [weibo.com](weibo.com). All of these dialogues are annotated by 19 annotators.
 
