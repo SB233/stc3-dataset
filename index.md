@@ -14,7 +14,7 @@ Recently, many reserachers are trying to build an automatic helpdesk system. How
 
 [Slides for DQ and ND subtasks](http://sakailab.com/wp-content/uploads/2018/06/STC3atNTCIR-14.pdf ) .
 
-[Download Dataset](https://codeload.github.com/sakai-lab/stc3-dataset/zip/master)
+[Download Dataset](https://github.com/sakai-lab/stc3-dataset/raw/master/data.zip)
 
 ## News
 - Sep 3: **Dataset published:**  This [dataset](https://sakai-lab.github.io/stc3-dataset/) has been available.
