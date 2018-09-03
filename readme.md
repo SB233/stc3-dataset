@@ -1,6 +1,12 @@
 # Dataset for NTCIR14-STC3 DQ and ND subtasks
 
-http://sakailab.com/ntcir14stc3/
+STC3 Homepage: [http://sakailab.com/ntcir14stc3/](http://sakailab.com/ntcir14stc3/)
+
+Dataset Desctiption: [https://sakai-lab.github.io/stc3-dataset/](https://sakai-lab.github.io/stc3-dataset/)
+
+Download the dataset from: [https://codeload.github.com/sakai-lab/stc3-dataset/zip/master](https://codeload.github.com/sakai-lab/stc3-dataset/zip/master)
+
+
 
 The Chinese dataset contains 4,090 (3,700 for training + 390 for testing)  customer-helpdesk dialgoues which are crawled from [weibo.com](weibo.com). All of these dialogues are annotated by 19 annotators.
 
@@ -8,15 +14,15 @@ The English dataset contains 2062 dialogues (1,672 for training + 390 for testin
 
 #### Training Data
 
- `train_data_cn.json` (3,700 dialogues)
+ *[train_data_cn.json](https://github.com/sakai-lab/stc3-dataset/blob/master/train_data_cn.json)* (3,700 dialogues)
 
- `train_data_en.json` (1,672 dialogues)
+ *[train_data_en.json](https://github.com/sakai-lab/stc3-dataset/blob/master/train_data_en.json)* (1,672 dialogues)
 
 #### Test Data
 
-` test_data_cn.json` (390 dialogues)
+*[test_data_cn.json](https://github.com/sakai-lab/stc3-dataset/blob/master/test_data_cn.json)* (390 dialogues)
 
-` test_data_en.json` (390 dialogues)
+*[test_data_en.json](https://github.com/sakai-lab/stc3-dataset/blob/master/test_data_en.json)* (390 dialogues)
 
 
 
