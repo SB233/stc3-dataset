@@ -29,15 +29,15 @@ The English dataset contains 2062 dialogues (1,672 for training + 390 for testin
 
 ### Training Data
 
- *[train_data_cn.json](https://github.com/sakai-lab/stc3-dataset/blob/master/train_data_cn.json)* (3,700 dialogues)
+ *[train_data_cn.json](https://github.com/sakai-lab/stc3-dataset/blob/master/data/train_data_cn.json)* (3,700 dialogues)
 
- *[train_data_en.json](https://github.com/sakai-lab/stc3-dataset/blob/master/train_data_en.json)* (1,672 dialogues)
+ *[train_data_en.json](https://github.com/sakai-lab/stc3-dataset/blob/master/data/train_data_en.json)* (1,672 dialogues)
 
 ### Test Data
 
-*[test_data_cn.json](https://github.com/sakai-lab/stc3-dataset/blob/master/test_data_cn.json)* (390 dialogues)
+*[test_data_cn.json](https://github.com/sakai-lab/stc3-dataset/blob/master/data/test_data_cn.json)* (390 dialogues)
 
-*[test_data_en.json](https://github.com/sakai-lab/stc3-dataset/blob/master/test_data_en.json)* (390 dialogues)
+*[test_data_en.json](https://github.com/sakai-lab/stc3-dataset/blob/master/data/test_data_en.json)* (390 dialogues)
 
 
 
