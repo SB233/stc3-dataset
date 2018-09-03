@@ -1,6 +1,6 @@
 # NTCIR14-STC3: DQ and ND subtasks
 
-Recently, many reserachers are trying to build an automatic helpdesk system. However, there are very few methods to evaluate such systems. In this competitoin, we aim to explore methods to evaluate task-oriented, multi-round, textual dialogue systems automatically. This dataset have the following features:
+Recently, many reserachers are trying to build automatic helpdesk systems. However, there are very few methods to evaluate such systems. In this competitoin, we aim to explore methods to evaluate task-oriented, multi-round, textual dialogue systems automatically. This dataset have the following features:
 
 - Chinese customer-helpdesk dialogues carwled from [Weibo](weibo.com).
 - English dialgoues: manually translated from a subset of the Chinese dialgoues.
