@@ -85,7 +85,7 @@ See http://sakailab.com/wp-content/uploads/2018/06/STC3atNTCIR-14.pdf for detail
 ---
 
 To evaluate your model, please submit all prediction distributions and the corresponding IDs in JSON format (please refer to `submission_example.json`). For A-score, E-score and S-score in  `quality`, please calculate the probability distributions over 2, 1, 0, -1, -2 for each dialogue. For `nugget`, please calculate the probility distributions over different nugget types for each turn (**NOT** each utterance).
-
+If you are only interested in one subtask (*nugget detection* or *dialogue quality*), it is okay to  include only `nugget` or `quality`.
 
 
 #### Annotators
