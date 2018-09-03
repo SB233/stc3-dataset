@@ -1,6 +1,4 @@
-# NTCIR14-STC3: DQ and ND subtasks
-
-Recently, many reserachers are trying to build automatic helpdesk systems. However, there are very few methods to evaluate such systems. In this competitoin, we aim to explore methods to evaluate task-oriented, multi-round, textual dialogue systems automatically. This dataset have the following features:
+Recently, many reserachers are trying to build automatic helpdesk systems. However, there are very few methods to evaluate such systems. In **STC-3**, we aim to explore methods to evaluate task-oriented, multi-round, textual dialogue systems automatically. This dataset have the following features:
 
 - Chinese customer-helpdesk dialogues carwled from [Weibo](weibo.com).
 - English dialgoues: manually translated from a subset of the Chinese dialgoues.
@@ -10,19 +8,20 @@ Recently, many reserachers are trying to build automatic helpdesk systems. Howev
   - customer satisfcation
   - dialogue effectiveness 
 
-[STC3 Homepage](http://sakailab.com/ntcir14stc3/)
-
-[Slides for DQ and ND subtasks](http://sakailab.com/wp-content/uploads/2018/06/STC3atNTCIR-14.pdf ) .
+In this competition, we consider annotations ground truth, and participants are required to predict nugget type for each turn (Nugget Detection, or ND) and dialogue quality for each dialogue (Dialogue Quality, or DQ).
 
 [Download Dataset](https://github.com/sakai-lab/stc3-dataset/raw/master/data.zip)
 
-## News
-- Sep 3: **Dataset published:**  This [dataset](https://sakai-lab.github.io/stc3-dataset/) has been available.
+[Slides for STC-3 Task (DQ and ND subtasks)](http://sakailab.com/wp-content/uploads/2018/06/STC3atNTCIR-14.pdf ) 
+
+[STC3 Homepage](http://sakailab.com/ntcir14stc3/)
+
+# News
+- Sep 3: **Dataset published:**  This [webpage](https://sakai-lab.github.io/stc3-dataset/) has been available.
 - Sep 3: **Registration deadline extended:**  We already have 14 registered teams but we have decided to extend the task registration deadline to Sunday 9th Steptember! Please register! Have fun with our new tasks! To register, please click [HERE](http://research.nii.ac.jp/ntcir/ntcir-14/howto.html).
 
 
-## Dataset Overview
-
+# Dataset Overview
 The Chinese dataset contains 4,090 (3,700 for training + 390 for testing)  customer-helpdesk dialgoues which are crawled from [Weibo](weibo.com). All of these dialogues are annotated by 19 annotators.
 
 The English dataset contains 2062 dialogues (1,672 for training + 390 for testing)  are manually translated from a subset of the Chinese dataset. The English dataset shares the same annotations with the Chinese dataset.
@@ -40,79 +39,76 @@ The English dataset contains 2062 dialogues (1,672 for training + 390 for testin
 *[test_data_en.json](https://github.com/sakai-lab/stc3-dataset/blob/master/data/test_data_en.json)* (390 dialogues)
 
 
+### Annotators
 
-## Format of the JSON file
+We hired 19  Chinese students from the department of Computer Science, Waseda University to annotate this dataset.
 
----
+# Format of the JSON file
 
 Each file is in JSON format with UTF-8 encoding. 
 
 Following are the top-level fields:
 
-- `id`
-- `turns`: array of turns from the customer and the helpdesk (see details below)
-- `annotations`: a list of annotations provided by 19 annotators. Each annotation consists of two fields: `nugget` and `quality`
+- **id**
+- **turns**: array of turns from the customer and the helpdesk (see details below)
+- **annotations**: a list of annotations provided by 19 annotators. Each annotation consists of two fields: **nugget** and **quality**
 
-Each element of the `turns` field contains the following fields:
+Each element of the turns field contains the following fields:
 
-- `sender`: the speaker of this turn (either customer or helpdesk)
-- `utterances`: the utterances (may be multiple) they sent in this turn. Note that some utterances are empty strings since we didn't crawl emoji and photos.
+- **sender**: the speaker of this turn (either customer or helpdesk)
+- **utterances**: the utterances (may be multiple) they sent in this turn. Note that some utterances are empty strings since we didn't crawl emoji and photos.
 
-Each element of `annotations` contains the following fields:
+Each element of **annotations** contains the following fields:
 
-- `nugget`: The list of nugget types for each turn (see details below).
-- `quality`: A dictonary consists of the subjetive dialogue quality scores: `A`-score, `S`-score, and `E`-score (see details below).
+- **nugget**: The list of nugget types for each turn (see details below).
+- **quality**: A dictonary consists of the subjetive dialogue quality scores: `A`-score, `S`-score, and `E`-score (see details below).
 
 
 
 ### Nugget Types
 
----
+**CNUG0**: Customer trigger (problem stated)
 
-`CNUG0`: Customer trigger (problem stated)
+**CNUG***: Customer goal (solution confirmed)
 
-`CNUG*`: Customer goal (solution confirmed)
+**HNUG***: Helpdesk goal (solution stated)
 
-`HNUG*`: Helpdesk goal (solution stated)
+**CNUG**: Customer regular
 
-`CNUG`: Customer regular
+**HNUG**: Helpdesk regular
 
-`HNUG`: Helpdesk regular
+**CNaN**: Customer Not-a-Nugget
 
-`CNaN`: Customer Not-a-Nugget
-
-`HNaN`: Helpdesk Not-a-Nugget
+**HNaN**: Helpdesk Not-a-Nugget
 
 
 
 ### Dialogue Quality
 
----
+**A**-score: Task **A**ccomplishment (Has the problem been solved? To what extent?) 
 
-`A`-score: Task **A**ccomplishment (Has the problem been solved? To what extent?) 
+**S**-score: Customer **S**atisfaction of the dialogue (not of the product/service or the company) 
 
-`S`-score: Customer **S**atisfaction of the dialogue (not of the product/service or the company) 
-
-`E`-score: Dialogue **E**ffectiveness (Do the utterers interact effectively to solve the problem efficiently?) 
+**E**-score: Dialogue **E**ffectiveness (Do the utterers interact effectively to solve the problem efficiently?) 
 
 Scale: 2, 1, 0, -1, -2
 
 
 
 
-## Evaluation
+# Evaluation
 
----
+To evaluate your model, please submit all prediction distributions and the corresponding IDs in JSON format (please refer to *submission_example.json*). For A-score, E-score and S-score in  **quality**, please calculate the probability distributions over 2, 1, 0, -1, -2 for each dialogue. For **nugget**, please calculate the probility distributions over different nugget types for each turn (**NOT** each utterance).
+If you are only interested in one subtask (nugget  or  quality), it is okay to  include only one of them.
 
-To evaluate your model, please submit all prediction distributions and the corresponding IDs in JSON format (please refer to `submission_example.json`). For A-score, E-score and S-score in  `quality`, please calculate the probability distributions over 2, 1, 0, -1, -2 for each dialogue. For `nugget`, please calculate the probility distributions over different nugget types for each turn (**NOT** each utterance).
-If you are only interested in one subtask (*nugget detection* or *dialogue quality*), it is okay to  include only `nugget` or `quality`.
+For details of the metrics, please look at [Slides](http://sakailab.com/wp-content/uploads/2018/06/STC3atNTCIR-14.pdf )  and [Metrics](https://waseda.app.box.com/v/SIGIR2018preprint).
+
+An evaluation script and a baseline example will be available soon.
 
 
-## Annotators
 
-We hired 19  Chinese students from the department of Computer Science, Waseda University to annotate this dataset.
 
-## Citation
+# Citation
 
 ```bibtex
 @inproceedings{zeng17evia, 
@@ -122,6 +118,8 @@ Booktitle = {Proceedings of EVIA 2017},
 Year = {2017}}
 ```
 
-## Have questions?
+
+
+# Have questions?
 
 Please contact: [zhaohao@fuji.waseda.jp](mailto:zhaohao@fuji.waseda.jp)        
