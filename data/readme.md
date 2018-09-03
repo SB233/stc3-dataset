@@ -9,8 +9,7 @@ For details, please visit https://sakai-lab.github.io/stc3-dataset/
 Author = {Zhaohao Zeng and Cheng Luo and Lifeng Shang and Hang Li and Tetsuya Sakai},
 Title = {Test Collections and Measures for Evaluating Customer-Helpdesk Dialogues},
 Booktitle = {Proceedings of EVIA 2017},
-	Pages = {1-9},
- Year = {2017}}
+Year = {2017}}
 ```
 
 ## Have questions?
