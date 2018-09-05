@@ -1,4 +1,6 @@
-# NTCIR14-STC3: DQ and ND subtasks
+# NTCIR-14 Short-Text Conversation Task (STC-3): DQ and ND subtasks
+
+[Download this dataset](https://github.com/sakai-lab/stc3-dataset/raw/master/data.zip)
 
 For details, please visit https://sakai-lab.github.io/stc3-dataset/
 
