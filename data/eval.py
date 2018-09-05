@@ -22,7 +22,11 @@ import numpy as np
 from scipy import stats
 
 parser = ArgumentParser()
-parser.add_argument("--alpha", type=float, default=.5)
+parser.add_argument("--alpha", type=float, default=.5,
+                    help="Adjust the weight for customer nuggets and helpdesk nuggets.")
+parser.add_argument("--strict", action="store_true", default=False,
+                    help="Whether missing predictions are evaluated as zero. It will be set for test_set")
+flags, argv = parser.parse_known_args()
 
 C_NUGGET_TYPES = ('CNUG0', 'CNUG', 'CNUG*', 'CNaN')
 H_NUGGET_TYPES = ('HNUG', 'HNUG*', 'HNaN')
@@ -134,6 +138,9 @@ def evaluate_nugget(id2pred, id2truth, alpha=.5):
                 else:
                     h_turn_scores.append(score)
             dialog_scores.append(np.mean(c_turn_scores) * alpha + np.mean(h_turn_scores) * (1 - alpha))
+
+        if flags.strict:
+            return np.sum(dialog_scores) / len(id2truth)
         return np.mean(dialog_scores)
 
     return {
@@ -177,6 +184,8 @@ def evaluate_quality(id2pred, id2truth):
                 result[score_key].append(score)
 
         for key, value in result.items():
+            if flags.strict:
+                result[key] = np.sum(value)/len(id2truth)
             result[key] = np.mean(value)
         return result
 
@@ -207,17 +216,15 @@ def evaluate(pred, truth, alpha=.5):
 
 
 def main():
-    FLAGS, _ = parser.parse_known_args()
-
-    if len(sys.argv) != 3:
+    if len(argv)  < 2:
         raise ValueError(
-            "Expected two arguments  <submission.json>  <ground_truth.json> , received %d"
-            % (len(sys.argv) - 1))
+            "Expected at lest two arguments  [submission.json]  [ground_truth.json], received %d"
+            % (argv))
 
-    _, pred_path, truth_path = sys.argv
+    pred_path, truth_path = argv
     pred = json.load(open(pred_path, encoding="utf-8"))
     truth = json.load(open(truth_path, encoding="utf-8"))
-    result = evaluate(pred, truth, alpha=FLAGS.alpha)
+    result = evaluate(pred, truth, alpha=flags.alpha)
 
     print(result)
     return result
