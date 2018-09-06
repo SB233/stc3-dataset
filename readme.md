@@ -1,4 +1,4 @@
-# NTCIR-14 Short-Text Conversation Task (STC-3): DQ and ND subtasks
+# NTCIR-14 Short-Text Conversation Task (STC-3) : Dialgoue Quality (DQ) and Nugget Detection (ND) subtasks
 
 [Download this dataset](https://github.com/sakai-lab/stc3-dataset/raw/master/data.zip)
 

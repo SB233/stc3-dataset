@@ -63,7 +63,7 @@ Each element of the turns field contains the following fields:
 Each element of **annotations** contains the following fields:
 
 - **nugget**: The list of nugget types for each turn (see details below).
-- **quality**: A dictonary consists of the subjetive dialogue quality scores: `A`-score, `S`-score, and `E`-score (see details below).
+- **quality**: A dictonary consists of the subjetive dialogue quality scores: A-score, S-score, and E-score (see details below).
 
 
 
@@ -93,24 +93,22 @@ Each element of **annotations** contains the following fields:
 
 - E-score: Dialogue **E**ffectiveness (Do the utterers interact effectively to solve the problem efficiently?) 
 
-Scale: $[2, 1, 0, -1, -2]$
+Scale: [2, 1, 0, -1, -2]
 
 
 
 
 # Evaluation
 
-### Metrics:
+### Metrics
 
 During the data annotaiton, we noticed that annotators' assessment on dialgoues are highly subjective and are hard to consolidate them into one gold label. Thus, we proposed to preserve the diverse views in the annotations “as is” and leverage them at the step of evaluation measure calculation.
 
-Instead of juding whether the estimated label is equal to the gold label, we compare the difference between the estiamted distributions $p=\{p(i)\}_{i=1}^L$ and the gold distributions ($p^*=\{p^*(i)\}_{i=1}^L$ calculaed by 19 anntators' annotations). Specifically, we employ these metrics for quality sub-task and nugget sub-task:
+Instead of juding whether the estimated label is equal to the gold label, we compare the difference between the estiamted distributions and the gold distributions calculaed by 19 anntators' annotations). Specifically, we employ these metrics for quality sub-task and nugget sub-task:
 
 - Quality:
 
   - NMD: Normalised Match Distance. 
-
-    $NMD(p, p^*)=\frac{\sum|cp(i) - cp^*(i)|}{L-1}$ where $cp(i) = \sum_{k=1}^i p(k)$ and  $cp^*(i) = \sum_{k=1}^i p^*(k)$
 
   - RSNOD: Root Symmetric Normalised Order-aware Divergence
 
@@ -118,15 +116,14 @@ Instead of juding whether the estimated label is equal to the gold label, we com
 
   - RNSS: Root Normalised Sum of Squared errors
 
-    $RNSS(p, p^*) = \sqrt{\frac{1}{2} \sum (p(i)-p^*(i))^2}$ 
+    JSD: Jensen-Shannon divergence
 
-  - JSD: Jensen-Shannon divergence
 
-    $JSD(p, p^*) = \frac{KLD(p||p_m) + KLD(p^*||p_m)}{2}$ 
+For the details, please vistit:
 
-    where KLD is Kullback-Leibler divergence and $p_m=\frac{p+p^*}{2}$
+[Slides for STC-3 Task (DQ and ND subtasks)](http://sakailab.com/wp-content/uploads/2018/06/STC3atNTCIR-14.pdf ) 
 
-For the details, please look at [Slides](http://sakailab.com/wp-content/uploads/2018/06/STC3atNTCIR-14.pdf )  and [Metrics](https://waseda.app.box.com/v/SIGIR2018preprint).
+[Comparing Two Binned Probability Distributions for Information Access Evaluation](https://waseda.app.box.com/v/SIGIR2018preprint).
 
 ###  Test
 
