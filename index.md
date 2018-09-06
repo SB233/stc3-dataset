@@ -18,7 +18,7 @@ In this competition, we consider annotations ground truth, and participants are 
 
 
 # News
-- Sep 6: **Evaluation script available**: You may use the [evaluation script](https://raw.githubusercontent.com/sakai-lab/stc3-dataset/master/data/eval.py) to evaluate and tune your models. See [Evaluation-Validation](https://sakai-lab.github.io/stc3-dataset/#Validation).
+- Sep 6: **Evaluation script available**: You may use the [evaluation script](https://raw.githubusercontent.com/sakai-lab/stc3-dataset/master/data/eval.py) to evaluate and tune your models. See [Evaluation-Validation](https://sakai-lab.github.io/stc3-dataset/#validation).
 
 - Sep 3: **Dataset published:**  This [webpage](https://sakai-lab.github.io/stc3-dataset/) has been available.
 

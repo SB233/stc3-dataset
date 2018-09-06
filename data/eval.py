@@ -194,7 +194,9 @@ def evaluate_quality(id2pred, id2truth):
         "nmd": _evaluate_quality(normalized_match_dist)}
 
 
-def evaluate(pred, truth, alpha=.5):
+def evaluate(pred_path, truth_path, alpha=.5):
+    pred = json.load(open(pred_path, encoding="utf-8"))
+    truth = json.load(open(truth_path, encoding="utf-8"))
     if not pred:
         raise ValueError("Prediction JSON is empty")
     if not truth:
@@ -220,11 +222,8 @@ def main():
         raise ValueError(
             "Expected at lest two arguments  [submission.json]  [ground_truth.json], received %d"
             % (argv))
-
     pred_path, truth_path = argv
-    pred = json.load(open(pred_path, encoding="utf-8"))
-    truth = json.load(open(truth_path, encoding="utf-8"))
-    result = evaluate(pred, truth, alpha=flags.alpha)
+    result = evaluate(pred_path, truth_path, alpha=flags.alpha)
 
     print(result)
     return result
