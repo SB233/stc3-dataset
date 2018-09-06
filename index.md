@@ -10,7 +10,9 @@ Recently, many reserachers are trying to build automatic helpdesk systems. Howev
 
 In this competition, we consider annotations ground truth, and participants are required to predict nugget type for each turn (Nugget Detection, or ND) and dialogue quality for each dialogue (Dialogue Quality, or DQ).
 
-[Download Dataset](https://github.com/sakai-lab/stc3-dataset/raw/master/data.zip)
+[Download Dataset (2.7 M)](https://github.com/sakai-lab/stc3-dataset/raw/master/data.zip)
+
+[Evaluation Script](https://raw.githubusercontent.com/sakai-lab/stc3-dataset/master/data/eval.py)
 
 [Slides for STC-3 Task (DQ and ND subtasks)](http://sakailab.com/wp-content/uploads/2018/06/STC3atNTCIR-14.pdf ) 
 
@@ -67,44 +69,122 @@ Each element of **annotations** contains the following fields:
 
 ### Nugget Types
 
-**CNUG0**: Customer trigger (problem stated)
+- CNUG0: Customer trigger (problem stated)
+- CNUG*: Customer goal (solution confirmed)
+- HNUG*: Helpdesk goal (solution stated)
 
-**CNUG***: Customer goal (solution confirmed)
+- CNUG: Customer regular nugget
 
-**HNUG***: Helpdesk goal (solution stated)
+- HNUG: Helpdesk regular nugget
 
-**CNUG**: Customer regular
+- CNaN: Customer Not-a-Nugget
+- HNaN: Helpdesk Not-a-Nugget
 
-**HNUG**: Helpdesk regular
 
-**CNaN**: Customer Not-a-Nugget
-
-**HNaN**: Helpdesk Not-a-Nugget
+<img src="img/nugget_example.png" alt="drawing" style="width:600px;"/>
 
 
 
 ### Dialogue Quality
 
-**A**-score: Task **A**ccomplishment (Has the problem been solved? To what extent?) 
+- A-score: Task **A**ccomplishment (Has the problem been solved? To what extent?) 
 
-**S**-score: Customer **S**atisfaction of the dialogue (not of the product/service or the company) 
+- S-score: Customer **S**atisfaction of the dialogue (not of the product/service or the company) 
 
-**E**-score: Dialogue **E**ffectiveness (Do the utterers interact effectively to solve the problem efficiently?) 
+- E-score: Dialogue **E**ffectiveness (Do the utterers interact effectively to solve the problem efficiently?) 
 
-Scale: 2, 1, 0, -1, -2
+Scale: $[2, 1, 0, -1, -2]$
 
 
 
 
 # Evaluation
 
-To evaluate your model, please submit all prediction distributions and the corresponding IDs in JSON format (please refer to *submission_example.json*). For A-score, E-score and S-score in  **quality**, please calculate the probability distributions over 2, 1, 0, -1, -2 for each dialogue. For **nugget**, please calculate the probility distributions over different nugget types for each turn (**NOT** each utterance).
-If you are only interested in one subtask (nugget  or  quality), it is okay to  include only one of them.
+### Metrics:
 
-For details of the metrics, please look at [Slides](http://sakailab.com/wp-content/uploads/2018/06/STC3atNTCIR-14.pdf )  and [Metrics](https://waseda.app.box.com/v/SIGIR2018preprint).
+During the data annotaiton, we noticed that annotators' assessment on dialgoues are highly subjective and are hard to consolidate them into one gold label. Thus, we proposed to preserve the diverse views in the annotations “as is” and leverage them at the step of evaluation measure calculation.
 
-An evaluation script and a baseline example will be available soon.
+Instead of juding whether the estimated label is equal to the gold label, we compare the difference between the estiamted distributions $p=\{p(i)\}_{i=1}^L$ and the gold distributions ($p^*=\{p^*(i)\}_{i=1}^L$ calculaed by 19 anntators' annotations). Specifically, we employ these metrics for quality sub-task and nugget sub-task:
 
+- Quality:
+
+  - NMD: Normalised Match Distance. 
+
+    $NMD(p, p^*)=\frac{\sum|cp(i) - cp^*(i)|}{L-1}$ where $cp(i) = \sum_{k=1}^i p(k)$ and  $cp^*(i) = \sum_{k=1}^i p^*(k)$
+
+  - RSNOD: Root Symmetric Normalised Order-aware Divergence
+
+- Nugget:
+
+  - RNSS: Root Normalised Sum of Squared errors
+
+    $RNSS(p, p^*) = \sqrt{\frac{1}{2} \sum (p(i)-p^*(i))^2}$ 
+
+  - JSD: Jensen-Shannon divergence
+
+    $JSD(p, p^*) = \frac{KLD(p||p_m) + KLD(p^*||p_m)}{2}$ 
+
+    where KLD is Kullback-Leibler divergence and $p_m=\frac{p+p^*}{2}$
+
+For the details, please look at [Slides](http://sakailab.com/wp-content/uploads/2018/06/STC3atNTCIR-14.pdf )  and [Metrics](https://waseda.app.box.com/v/SIGIR2018preprint).
+
+###  Test
+
+Once you have a built a model, you may submit it to get official scores on a hidden test set. To preserve the integrity of test results, we do not release the annotations of the test set to the public. Instead, we require you to submit your prediction file. Please put the estimated distributions and the corresponding IDs in a JSON dump file (please refer to [submission_example.json]((https://github.com/sakai-lab/stc3-dataset/blob/master/data/submission_example.json)). For example: 
+
+```json
+{
+    "id": "3636650070956277",
+    "quality": {
+      "A": {
+        "2": 0.15,
+        "1": 0.25,
+        "0": 0.3,
+        "-1": 0.2,
+        "-2": 0.1
+      },
+      "S": {
+        "2": 0.25,
+        "1": 0.15,
+        "0": 0.3,
+        "-1": 0.2,
+        "-2": 0.1
+      },
+      "E": {
+        "2": 0.2,
+        "1": 0.3,
+        "0": 0.25,
+        "-1": 0.1,
+        "-2": 0.15
+      }
+    },
+    "nugget": [
+      {
+        "CNUG0": 0.2,
+        "CNUG": 0.5,
+        "CNUG*": 0.2,
+        "CNaN": 0.1
+      },
+      {
+        "HNUG": 0.6,
+        "HNUG*": 0.3,
+        "HNaN": 0.1
+      }
+    ]
+  },
+```
+
+
+
+If you are only interested in one subtask (nugget  or  quality), the submission JSON may include only one of them.
+
+### Validation
+
+To tune your model, please use a subset of the training set as a validation set. Since the traning set is not large, K-fold methods are recommended. To calculate metrics for the validtion set, you may use the [evaluation script](https://github.com/sakai-lab/stc3-dataset/blob/master/data/eval.py) to calculate these metrics locally from a prediction file:
+
+```shell
+python eval.py submission_example.json train_data_en.json
+```
 
 
 
