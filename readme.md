@@ -17,7 +17,7 @@ For details, please visit https://sakai-lab.github.io/stc3-dataset/
 - Sep 3: **Registration deadline extended:**  We already have 14 registered teams but we have decided to extend the task registration deadline to Sunday 9th Steptember! Please register! Have fun with our new tasks! To register, please click [HERE](http://research.nii.ac.jp/ntcir/ntcir-14/howto.html).
 
 
-## Citation
+# Citation
 
 ```bibtex
 @inproceedings{zeng17evia, 
@@ -27,6 +27,6 @@ Booktitle = {Proceedings of EVIA 2017},
 Year = {2017}}
 ```
 
-## Have questions?
+# Have questions?
 
 Please contact: [zhaohao@fuji.waseda.jp](mailto:zhaohao@fuji.waseda.jp)        
