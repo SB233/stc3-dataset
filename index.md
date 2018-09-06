@@ -10,17 +10,27 @@ Recently, many reserachers are trying to build automatic helpdesk systems. Howev
 
 In this competition, we consider annotations ground truth, and participants are required to predict nugget type for each turn (Nugget Detection, or ND) and dialogue quality for each dialogue (Dialogue Quality, or DQ).
 
-[Download Dataset (2.7 M)](https://github.com/sakai-lab/stc3-dataset/raw/master/data.zip)
+- [Download Dataset (2.7 M)](https://github.com/sakai-lab/stc3-dataset/raw/master/data.zip)
+- [Evaluation Script](https://raw.githubusercontent.com/sakai-lab/stc3-dataset/master/data/eval.py)
+- [Slides for STC-3 Task (DQ and ND subtasks)](http://sakailab.com/wp-content/uploads/2018/06/STC3atNTCIR-14.pdf ) 
 
-[Evaluation Script](https://raw.githubusercontent.com/sakai-lab/stc3-dataset/master/data/eval.py)
+- [STC3 Homepage](http://sakailab.com/ntcir14stc3/)
 
-[Slides for STC-3 Task (DQ and ND subtasks)](http://sakailab.com/wp-content/uploads/2018/06/STC3atNTCIR-14.pdf ) 
 
-[STC3 Homepage](http://sakailab.com/ntcir14stc3/)
 
 # News
+- Sep 6: **Evaluation script available**: You may use the [evaluation script](https://raw.githubusercontent.com/sakai-lab/stc3-dataset/master/data/eval.py) to evaluate and tune your models. See [Evaluation-Validation](https://sakai-lab.github.io/stc3-dataset/#Validation).
+
 - Sep 3: **Dataset published:**  This [webpage](https://sakai-lab.github.io/stc3-dataset/) has been available.
+
 - Sep 3: **Registration deadline extended:**  We already have 14 registered teams but we have decided to extend the task registration deadline to Sunday 9th Steptember! Please register! Have fun with our new tasks! To register, please click [HERE](http://research.nii.ac.jp/ntcir/ntcir-14/howto.html).
+
+
+# Leaderboard
+
+Comming soon
+
+
 
 
 # Dataset Overview
@@ -125,7 +135,9 @@ For the details, please vistit:
 
 [Comparing Two Binned Probability Distributions for Information Access Evaluation](https://waseda.app.box.com/v/SIGIR2018preprint).
 
-###  Test
+###  Test (Work in Progress)
+
+TODO: the API for submit your predcition has not been available.
 
 Once you have a built a model, you may submit it to get official scores on a hidden test set. To preserve the integrity of test results, we do not release the annotations of the test set to the public. Instead, we require you to submit your prediction file. Please put the estimated distributions and the corresponding IDs in a JSON dump file (please refer to [submission_example.json]((https://github.com/sakai-lab/stc3-dataset/blob/master/data/submission_example.json)). For example: 
 
@@ -196,6 +208,12 @@ Year = {2017}}
 ```
 
 
+
+# TODO
+
+- [ ] Test API and Leaderboard
+- [x] Evaluation Script
+- [x] Dataset
 
 # Have questions?
 
