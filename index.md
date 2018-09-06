@@ -12,8 +12,7 @@ In this competition, we consider annotations ground truth, and participants are 
 
 - [Download Dataset (2.7 M)](https://github.com/sakai-lab/stc3-dataset/raw/master/data.zip)
 - [Evaluation Script](https://raw.githubusercontent.com/sakai-lab/stc3-dataset/master/data/eval.py)
-- [Slides for STC-3 Task (DQ and ND subtasks)](http://sakailab.com/wp-content/uploads/2018/06/STC3atNTCIR-14.pdf ) 
-
+- [Slides for STC-3 Task (DQ and ND subtasks)](http://sakailab.com/wp-content/uploads/2018/06/STC3atNTCIR-14.pdf)
 - [STC3 Homepage](http://sakailab.com/ntcir14stc3/)
 
 
@@ -38,17 +37,13 @@ The Chinese dataset contains 4,090 (3,700 for training + 390 for testing)  custo
 
 The English dataset contains 2062 dialogues (1,672 for training + 390 for testing)  are manually translated from a subset of the Chinese dataset. The English dataset shares the same annotations with the Chinese dataset.
 
-### Training Data
+- Training set
+  -  *[train_data_cn.json](https://github.com/sakai-lab/stc3-dataset/blob/master/data/train_data_cn.json)* (3,700 dialogues)
+  -  *[train_data_en.json](https://github.com/sakai-lab/stc3-dataset/blob/master/data/train_data_en.json)* (1,672 dialogues)
 
- *[train_data_cn.json](https://github.com/sakai-lab/stc3-dataset/blob/master/data/train_data_cn.json)* (3,700 dialogues)
-
- *[train_data_en.json](https://github.com/sakai-lab/stc3-dataset/blob/master/data/train_data_en.json)* (1,672 dialogues)
-
-### Test Data
-
-*[test_data_cn.json](https://github.com/sakai-lab/stc3-dataset/blob/master/data/test_data_cn.json)* (390 dialogues)
-
-*[test_data_en.json](https://github.com/sakai-lab/stc3-dataset/blob/master/data/test_data_en.json)* (390 dialogues)
+- Test set
+  - *[test_data_cn.json](https://github.com/sakai-lab/stc3-dataset/blob/master/data/test_data_cn.json)* (390 dialogues)
+  - *[test_data_en.json](https://github.com/sakai-lab/stc3-dataset/blob/master/data/test_data_en.json)* (390 dialogues)
 
 
 ### Annotators
@@ -137,7 +132,7 @@ For the details, please vistit:
 
 ###  Test (Work in Progress)
 
-TODO: the API for submit your predcition has not been available.
+TODO: the API for submitting your predcition has not been available.
 
 Once you have a built a model, you may submit it to get official scores on a hidden test set. To preserve the integrity of test results, we do not release the annotations of the test set to the public. Instead, we require you to submit your prediction file. Please put the estimated distributions and the corresponding IDs in a JSON dump file (please refer to [submission_example.json]((https://github.com/sakai-lab/stc3-dataset/blob/master/data/submission_example.json)). For example: 
 
@@ -189,7 +184,7 @@ If you are only interested in one subtask (nugget  or  quality), the submission 
 
 ### Validation
 
-To tune your model, please use a subset of the training set as a validation set. Since the traning set is not large, K-fold methods are recommended. To calculate metrics for the validtion set, you may use the [evaluation script](https://github.com/sakai-lab/stc3-dataset/blob/master/data/eval.py) to calculate these metrics locally from a prediction file:
+To tune your model, please use a subset of the training set as a validation set. Since the traning set is not large, K-fold methods are recommended. To calculate metrics for the validtion set on your computer, you may use the [evaluation script](https://github.com/sakai-lab/stc3-dataset/blob/master/data/eval.py):
 
 ```shell
 python eval.py submission_example.json train_data_en.json
@@ -211,6 +206,7 @@ Year = {2017}}
 
 # TODO
 
+- [ ] Release a baseline model
 - [ ] Test API and Leaderboard
 - [x] Evaluation Script
 - [x] Dataset
