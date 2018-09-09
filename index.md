@@ -85,7 +85,6 @@ Each element of **annotations** contains the following fields:
 - CNaN: Customer Not-a-Nugget
 - HNaN: Helpdesk Not-a-Nugget
 
-
 <img src="img/nugget_example.png" alt="drawing" style="width:600px;"/>
 
 
@@ -180,7 +179,7 @@ Once you have a built a model, you may submit it to get official scores on a hid
 
 
 
-If you are only interested in one subtask (nugget  or  quality), the submission JSON may include only one of them.
+If you are only interested in one subtask (either nugget detection  or dialogue quality), the submission JSON may include only `nugget` or `quality`.
 
 ### Validation
 
@@ -221,11 +220,11 @@ Please contact: [zhaohao@fuji.waseda.jp](mailto:zhaohao@fuji.waseda.jp)
 
 # Terms
 
-
 ### Annotations
 
-<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />The annotations are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<p>
+The annotations are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>
 
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
 
 ### Software
 
